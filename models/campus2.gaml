@@ -10,15 +10,7 @@ model campus2
 global control:fsm{
 	/** Insert the global definitions, variables and actions here */
 	file grid_data <- file('../includes/file.asc');
-	/*
-	 * 3
-	 * 3
-	 * 3
-	 * 3
-	 * 3
-	 * 3
-	 * 3
-	 */
+
 	geometry shape <- envelope(grid_data);
 	int current_cycle update: cycle;
 	
@@ -122,7 +114,7 @@ global control:fsm{
 			write("entered disaggregate");
 			int enter_cycle <- cycle;
 		}		
-		/* 
+		
 		ask (0.6*sum_plots) among total_places where(each.color = #grey){
 			color <- #blue;
 		}
@@ -135,22 +127,10 @@ global control:fsm{
 		ask total_places where(each.color = #grey) {
 			color <- #green;
 		}					
-		*/		
+			
 		 
 		  
-		ask total_places {
-			if flip(u) {
-				color <- teaching;
-			}
-			else {
-				color <- residential;
-			}		
-		}
-			
-		green_places <- int(percent_green * float(sum_plots)) among total_places;
-		ask green_places {
-			color <- green; 
-		}
+
 		exit {
 			total_plots <- shuffle(total_places);			
 		}
