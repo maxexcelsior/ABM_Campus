@@ -11,13 +11,13 @@ global control:fsm{
 	/** Insert the global definitions, variables and actions here */
 	file grid_data <- file('../includes/file.asc');
 	/*
-	 * 2
-	 * 2
-	 * 2
-	 * 2
-	 * 2
-	 * 2
-	 * 2
+	 * 3
+	 * 3
+	 * 3
+	 * 3
+	 * 3
+	 * 3
+	 * 3
 	 */
 	geometry shape <- envelope(grid_data);
 	int current_cycle update: cycle;
