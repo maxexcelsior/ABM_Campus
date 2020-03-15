@@ -9,8 +9,8 @@ model campus2
 
 global control:fsm{
 	/** Insert the global definitions, variables and actions here */
-	file grid_data <- file('../includes/file.asc');
-
+	file grid_data <- file('../includes/file2.asc');
+	
 	geometry shape <- envelope(grid_data);
 	int current_cycle update: cycle;
 	
@@ -114,7 +114,20 @@ global control:fsm{
 			write("entered disaggregate");
 			int enter_cycle <- cycle;
 		}		
-	
+		/* 
+		ask (0.6*sum_plots) among total_places where(each.color = #grey){
+			color <- #blue;
+		}
+		ask (0.4*sum_plots) among total_places where(each.color = #grey) {
+			color <- #yellow;
+		}
+		ask (0.2*sum_plots) among total_places where(each.color = #grey) {
+			color <- #red;
+		}	
+		ask total_places where(each.color = #grey) {
+			color <- #green;
+		}					
+		*/		
 		 
 		  
 		ask total_places {
@@ -130,8 +143,6 @@ global control:fsm{
 		ask green_places {
 			color <- green; 
 		}
-		
-		
 		exit {
 			total_plots <- shuffle(total_places);			
 		}
@@ -291,7 +302,7 @@ grid plot file: grid_data{
 				free_places <+ self;
 				free_places >- pp;
 				all_plots >- self;
-				all_plots << pp;
+				all_plots <+ pp;
 				pp.color <- color;
 				color <- temp_color;
 			}
