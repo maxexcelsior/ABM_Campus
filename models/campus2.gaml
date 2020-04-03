@@ -1,7 +1,7 @@
 /***
 * Name: campus2
 * Author: pc
-* Description: 
+* Description: 规程参考谢林种群隔离模型
 * Tags: Tag1, Tag2, TagN
 ***/
 

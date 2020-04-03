@@ -1,7 +1,7 @@
 /***
 * Name: campus3
 * Author: pc
-* Description: 
+* Description: 基于功能联系的阶段式生成
 * Tags: Tag1, Tag2, TagN
 ***/
 
@@ -9,7 +9,7 @@ model campus2
 
 global control:fsm{
 	/** Insert the global definitions, variables and actions here */
-	file grid_data <- file('../includes/file33.asc');
+	file grid_data <- file('../includes/file5.asc');
 	
 	geometry shape <- envelope(grid_data);
 	int current_cycle update: cycle;
@@ -86,8 +86,6 @@ global control:fsm{
 			}		
 			flag <- 0;
 		}
-
-		
 		exit {
 			write("total number of cells is: " + length(total_places));
 			ask total_places {
